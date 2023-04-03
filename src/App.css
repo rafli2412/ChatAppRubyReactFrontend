@@ -1,0 +1,165 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  height: 100vh;
+  width: 100%;
+  min-height: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  background-color: #F9F5EB;
+}
+
+#root {
+  height: 100vh;
+  width: 100%;
+}
+
+.messages {
+  height: 60%;
+  overflow-y: scroll;
+  padding: 0 20px;
+
+  margin: 5% auto 0 auto;
+  width: 80%;
+}
+
+
+.messageForm {
+  height: 10%;
+
+  margin: 20px auto 0 auto;
+  width: 80%;
+}
+
+.messageInput {
+  border-radius: 10px;
+  margin-top: 3px;
+  height: 40px;
+  width: 90%;
+  background-color: #E4DCCF;
+  color: #55534e;
+  border: none;
+  font-size: 24px;
+  border-bottom: solid #b0afac 5px;
+  transition: .5s;
+  padding-left: 10px;
+}
+
+.messageInput:hover {
+  border-bottom: solid #55534e 5px;
+}
+
+.messageInput:focus {
+  outline: none;
+  border-bottom: solid #55534e 5px;
+}
+
+.messageButton.active {
+  visibility: visible;
+  height: max-content;
+  width: max-content;
+  padding: 10px;
+  /* background-color: #; */
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  border-radius: 10px;
+  float: right;
+  transition: .5s;
+}
+
+.messageButton:hover {
+  background-color: #002B5B;
+  transform: rotate(-90deg);
+}
+
+.messageButton {
+  visibility: hidden;
+  height: 0px;
+  float: right;
+  width: 0px;
+  padding: 0px;
+  font-size: 0px;
+  transition: .5s;
+}
+
+.messageHeader {
+  height: max-content;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  color: #55534e;
+  /* background-color: #EA5455; */
+}
+
+.messageHeader h1, .messageHeader p {
+  margin: 0px;
+}
+
+.message {
+  background-color: #EA5455;
+  width: max-content;
+  margin-bottom: 0px;
+  padding: 0 10px;
+  max-width: 50ch;
+  border-radius: 10px;
+}
+
+.message .body {
+  font-size: 20px;
+  color: white;
+}
+
+.yourmessage {
+  padding: 0 10px;
+  border-radius: 10px;
+  margin-left: auto; 
+  margin-right: 0;
+  margin-top: 20px;
+  width: max-content;
+  max-width: 50ch;
+  text-align: right;
+  background-color: #002B5B;
+}
+
+.yourmessage p, .message p {
+  margin-bottom: 0px;
+}
+
+.yourmessage .body {
+  font-size: 20px;
+  color: wheat;
+}
+
+.guestid {
+  font-size: 10px;
+}
+
+.deleteButton {
+  font-size: 10px;
+}
+
+.scrollDownButton.active, .scrollDownButtonIcon {
+  visibility: visible;
+  display: inline;
+  float: right;
+  position: sticky;
+  top: 10px;
+  background-color: #55534e;
+  width: max-content;
+  padding: 5px;
+  border-radius: 30px;
+  font-size: 24px;
+  color: black;
+  cursor: pointer;
+}
+
+.scrollDownButton {
+  visibility: hidden;
+}
