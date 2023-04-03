@@ -4,7 +4,7 @@ import { Popconfirm } from "antd";
 import { IoSend, IoCaretDown } from 'react-icons/io5';
 import './App.css';
 
-const ws = new WebSocket("ws:https://rmchatappbackend.herokuapp.com");
+// const ws = new WebSocket("ws:https://rmchatappbackend.herokuapp.com");
 
 
 function App() {
@@ -16,30 +16,30 @@ function App() {
   useEffect(() => {
     setGuid(Math.random().toString(36).substring(2, 15));
   }, [])
-  
-  ws.onopen = () => {
-    console.log("Terhubung ke Server Websocket");
 
-    ws.send(
-      JSON.stringify({
-        command: "subscribe",
-        identifier: JSON.stringify({
-          id: guid,
-          channel: "MessagesChannel",
-        }),
-      })
-    )
-  };
+  // ws.onopen = () => {
+  //   console.log("Terhubung ke Server Websocket");
 
-  ws.onmessage = (e) => {
-    const data = JSON.parse(e.data);
-    if (data.type === "ping") return;
-    if (data.type === "welcome") return;
-    if (data.type === "confirm_subscription") return;
+  //   ws.send(
+  //     JSON.stringify({
+  //       command: "subscribe",
+  //       identifier: JSON.stringify({
+  //         id: guid,
+  //         channel: "MessagesChannel",
+  //       }),
+  //     })
+  //   )
+  // };
 
-    const message = data.message;
-    setMessages([...messages, message]);
-  };
+  // ws.onmessage = (e) => {
+  //   const data = JSON.parse(e.data);
+  //   if (data.type === "ping") return;
+  //   if (data.type === "welcome") return;
+  //   if (data.type === "confirm_subscription") return;
+
+  //   const message = data.message;
+  //   setMessages([...messages, message]);
+  // };
 
   useEffect(() => {
     fetchMessages();
