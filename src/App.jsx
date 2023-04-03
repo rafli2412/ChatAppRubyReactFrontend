@@ -138,7 +138,7 @@ function App() {
 
       var scrollDownbtn = document.getElementById("scrollDownButton");
 
-      if (scrollValue>=messagesContainer.scrollHeight-100) {
+      if (scrollValue>=messagesContainer.scrollHeight) {
         scrollDownbtn.className = 'scrollDownButton';
       } else {
         scrollDownbtn.className = 'scrollDownButton active';
