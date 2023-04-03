@@ -4,7 +4,7 @@ import { Popconfirm } from "antd";
 import { IoSend, IoCaretDown } from 'react-icons/io5';
 import './App.css';
 
-const ws = new WebSocket("ws://localhost:3000/cable");
+const ws = new WebSocket("https://rmchatappbackend.herokuapp.com/cable");
 
 
 function App() {
