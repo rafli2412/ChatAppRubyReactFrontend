@@ -4,7 +4,7 @@ import { Popconfirm } from "antd";
 import { IoSend, IoCaretDown } from 'react-icons/io5';
 import './App.css';
 
-const ws = new WebSocket("https://rmchatappbackend.herokuapp.com/cable");
+const ws = new WebSocket("ws:https://rmchatappbackend.herokuapp.com");
 
 
 function App() {
@@ -13,9 +13,12 @@ function App() {
   const messagesContainer = document.getElementById("messages");
   const bottomRef = useRef(null);
 
+  useEffect(() => {
+    setGuid(Math.random().toString(36).substring(2, 15));
+  }, [])
+  
   ws.onopen = () => {
     console.log("Terhubung ke Server Websocket");
-    setGuid(Math.random().toString(36).substring(2, 15));
 
     ws.send(
       JSON.stringify({
@@ -47,7 +50,7 @@ function App() {
     const body = e.target.message.value;
     e.target.message.value = "";
 
-    await fetch("http://localhost:3000/messages", {
+    await fetch("https://rmchatappbackend.herokuapp.com/messages/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -71,7 +74,7 @@ function App() {
     }
 
   const deleteMessage = async (msgid) => {
-    const url = 'http://localhost:3000/messages/'+msgid;
+    const url = 'https://rmchatappbackend.herokuapp.com/messages/'+msgid;
 
     await fetch(url, {
       method: "DELETE",
@@ -84,7 +87,7 @@ function App() {
   };
 
   const fetchMsg = async () => {
-    const url = 'http://localhost:3000/messages/';
+    const url = 'https://rmchatappbackend.herokuapp.com/messages/';
 
     const rep = await fetch(url);
     const data = await rep.json();
@@ -92,7 +95,7 @@ function App() {
   }
 
   const fetchMessages = async () => {
-    const response = await fetch("http://localhost:3000/messages");
+    const response = await fetch("https://rmchatappbackend.herokuapp.com/messages/");
     const data = await response.json();
     setMessagesAndScrollDown(data);
   };
