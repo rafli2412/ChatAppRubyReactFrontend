@@ -4,7 +4,7 @@ import { Popconfirm } from "antd";
 import { IoSend, IoCaretDown } from 'react-icons/io5';
 import './App.css';
 
-const ws = new WebSocket("wss:https://rmchatappbackend.herokuapp.com");
+const ws = new WebSocket("wss:rmchatappbackend.herokuapp.com/cable/");
 
 
 function App() {
@@ -142,8 +142,8 @@ function App() {
         scrollDownbtn.className = 'scrollDownButton';
       } else {
         scrollDownbtn.className = 'scrollDownButton active';
-      }
     }
+  }
   })
 
   return (
